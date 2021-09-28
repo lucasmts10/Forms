@@ -1,0 +1,138 @@
+import checkoutFormModel from './checkoutFormModel';
+const {
+  formField: {
+    /* Contrato */
+    ufContrato,
+    cidadeContrato,
+    dtIniContrato,
+
+    /* Empresa */
+    nomeEmp,
+    nomeFantEmp,
+    atividadeEmp,
+    dtAberEmp,
+    cepEmp,
+    cidadeEmp,
+    ufEmp,
+    lgrEmp,
+    numEmp,
+    bairroEmp,
+    capSocEmp,
+    quotasEmp,
+    vlNomQuotEmp,
+    proLabore,
+    assAdm,
+    tpInt,
+
+    /* Socio */
+    nomeSoc,
+    sexoSoc,
+    ufNatSoc,
+    cidadeNatSoc,
+    nomePai,
+    nomeMae,
+    nacSoc,
+    estCivilSoc,
+    profSoc,
+    dtNascSoc,
+    maioridadeSoc,
+    rgSoc,
+    orgExpSoc,
+    cpfSoc,
+    cepSoc,
+    cidadeSoc,
+    ufSoc,
+    lgrSoc,
+    numSoc,
+    bairroSoc,
+    telSoc,
+    telOpSoc,
+    emailSoc,
+    quotasSoc,
+    pctQuotasSoc,
+    funcaoSoc,
+    especieSoc,
+
+    /* Comarca */
+    ufComarca,
+    cidadeComarca,
+
+    /* Testemunha */
+    nomeTest1,
+    rgTest1,
+    orgExpTest1,
+    cpfTest1,
+    nomeTest2,
+    rgTest2,
+    orgExpTest2,
+    cpfTest2,
+  }
+} = checkoutFormModel;
+
+export default {
+  /* Contrato */
+  [ufContrato.name]: '',
+  [cidadeContrato.name]: '',
+  [dtIniContrato.name]: '',
+
+  /* Empresa */
+  [nomeEmp.name]: '',
+  [nomeFantEmp.name]: '',
+  [atividadeEmp.name]: '',
+  [dtAberEmp.name]: '',
+  [cepEmp.name]: '',
+  [cidadeEmp.name]: '',
+  [ufEmp.name]: '',
+  [lgrEmp.name]: '',
+  [numEmp.name]: '',
+  [bairroEmp.name]: '',
+  [capSocEmp.name]: '',
+  [quotasEmp.name]: '',
+  [vlNomQuotEmp.name]: '',
+  [proLabore.name]: '',
+  [assAdm.name]: '',
+  [tpInt.name]: '',
+
+  /* Socio */
+  [nomeSoc.name]: '',
+  [sexoSoc.name]: '',
+  [ufNatSoc.name]: '',
+  [cidadeNatSoc.name]: '',
+  [nomePai.name]: '',
+  [nomeMae.name]: '',
+  [nacSoc.name]: '',
+  [estCivilSoc.name]: '',
+  [profSoc.name]: '',
+  [dtNascSoc.name]: '',
+  [maioridadeSoc.name]: '',
+  [rgSoc.name]: '',
+  [orgExpSoc.name]: '',
+  [cpfSoc.name]: '',
+  [cepSoc.name]: '',
+  [cidadeSoc.name]: '',
+  [ufSoc.name]: '',
+  [lgrSoc.name]: '',
+  [numSoc.name]: '',
+  [bairroSoc.name]: '',
+  [telSoc.name]: '',
+  [telOpSoc.name]: '',
+  [emailSoc.name]: '',
+  [quotasSoc.name]: '',
+  [pctQuotasSoc.name]: '',
+  [funcaoSoc.name]: '',
+  [especieSoc.name]: '',
+
+  /* Comarca */
+  [ufComarca.name]: '',
+  [cidadeComarca.name]: '',
+
+  /* Testemunha */
+  [nomeTest1.name]: '',
+  [rgTest1.name]: '',
+  [orgExpTest1.name]: '',
+  [cpfTest1.name]: '',
+  [nomeTest2.name]: '',
+  [rgTest2.name]: '',
+  [orgExpTest2.name]: '',
+  [cpfTest2.name]: '',
+};

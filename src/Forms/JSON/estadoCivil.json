@@ -1,0 +1,38 @@
+[
+    {
+        "estadoCivMasc": "solteiro",
+        "estadoCivFem": "solteira"
+    },
+    {
+        "estadoCivMasc": "casado sob regime de comunhão parcial de bens",
+        "estadoCivFem": "casada sob regime de comunhão parcial de bens"
+    },
+    {
+        "estadoCivMasc": "casado sob regime de comunhão universal de bens",
+        "estadoCivFem": "casada sob regime de comunhão universal de bens"
+    },
+    {
+        "estadoCivMasc": "casado sob regime de participação final nos aqüestos",
+        "estadoCivFem": "casada sob regime de participação final nos aqüestos"
+    },
+    {
+        "estadoCivMasc": "casado sob regime de separação de bens",
+        "estadoCivFem": "casada sob regime de separação de bens"
+    },
+    {
+        "estadoCivMasc": "viúvo",
+        "estadoCivFem": "viúva"
+    },
+    {
+        "estadoCivMasc": "divorciado",
+        "estadoCivFem": "divorciada"
+    },
+    {
+        "estadoCivMasc": "separado judicialmente",
+        "estadoCivFem": "separada judicialmente"
+    },
+    {
+        "estadoCivMasc": "união estável",
+        "estadoCivFem": "união estável"
+    }
+]

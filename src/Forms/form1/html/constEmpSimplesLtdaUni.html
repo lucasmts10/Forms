@@ -1,0 +1,246 @@
+<html>
+
+<head>
+    <style>
+        /*CSS de estrutura da Pagina de Impressão*/
+        @page {
+            size: A4;
+            width: 210mm;
+            height: 296mm;
+            margin: 5mm 15mm 30mm 20mm;
+        }
+
+        table {
+            margin: auto;
+            text-align: center;
+        }
+
+        table,
+        tr,
+        td {
+            border: initial;
+            border-collapse: collapse;
+            padding: auto;
+            page-break-inside: avoid;
+        }
+
+        /* CSS de Conteúdo */
+        #conteudo {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #conteudo h1 {
+            font-size: 13pt;
+            text-align: center;
+        }
+
+        #conteudo h2 {
+            font-size: 12pt;
+            text-align: center;
+        }
+
+        #conteudo p {
+            font-size: 11pt;
+            text-align: justify;
+        }
+
+        #conteudo table,
+        #conteudo tr,
+        #conteudo td {
+            font-size: 11pt;
+            border: 1px solid black;
+            border-collapse: collapse;
+            page-break-inside: avoid;
+            margin: auto;
+            padding: 0 1em;
+            width: 100%;
+        }
+
+        #conteudo .negrito {
+            font-weight: bold;
+        }
+
+        #conteudo .center {
+            text-align: center;
+        }
+
+        .assinaturas {
+            page-break-inside: avoid;
+        }
+
+        @media print {
+
+            /* CSS de Cabeçalho */
+            #header {
+                margin: 0 0 0 75mm;
+            }
+
+            #header>img {
+                max-width: 90%;
+            }
+
+            #header>hr {
+                display: block;
+                height: 1px;
+                background: transparent;
+                max-width: 90%;
+                border: none;
+                border-top: solid 3px #000;
+            }
+
+
+            /* CSS de Espaçamento (necessário para última página) */
+            #spacer {
+                height: 2em;
+            }
+
+            /* CSS de Rodapé */
+            #footer {
+                position: fixed;
+                bottom: 0;
+                margin-left: 15mm;
+            }
+
+            #footer>p {
+                text-align: center;
+                font-size: 8pt;
+                letter-spacing: 1px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    <div id="header">
+                        <img id="headerImg" src="${cabecalhoMinasContabil}" alt="cabeçalhoMinasContabil">
+                        <hr />
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="#spacer"></td>
+            </tr>
+            <tr>
+                <td id="conteudo">
+                    <h1><u>${dadosContrato.nomeContrato}</u></h1>
+                    <h2>"${empresaContratante.nomeEmpContratante}"</h2>
+                    <p>&emsp;O abaixo assinado:</p><br />
+                    <!-- inicio de ${handleSociosContratantesHtml('inicio')} -->
+                    <p><b>${numeroRomano(index + 1)} - ${socioContratante.nomeSocioContratante}</b>, ${socioContratante.nacionalidadeSocContratante}, ${socioContratante.estadoCivilSocContratante},      ${socioContratante.profissaoSocContratante}, ${socioContratante.maioridadeSocContratante}, nascido aos      ${socioContratante.dataNascimentoSocContratante}, filho de ${socioContratante.paiSocContratante} e ${socioContratante.maeSocContratante}, portador      da Carteira de Identidade RG sob o n.º ${socioContratante.rgSocContratante}, expedida pelo(a)      ${socioContratante.emissorRgSocContratante} e do CPF/MF sob o n.º ${socioContratante.cpfSocContratante}, residente e domiciliado      nesta cidade e comarca de ${socioContratante.cidadeSocContratante} - ${socioContratante.ufSocContratante}, CEP:      ${socioContratante.cepSocContratante}, à ${socioContratante.ruaSocContratante}, nº ${socioContratante.numEndSocContratante} -      ${socioContratante.bairroSocContratante}, Contato: ${socioContratante.telefoneSocContratante},${socioContratante.telefone2SocContratante?.length !== 0 ? ` ${socioContratante.telefone2SocContratante}, `: ''} e-mail:      <u>${socioContratante.emailSocContratante}</u>, resolve constituir uma Sociedade Simples Limitada Unipessoal, nos      termos da Legislação aplicável, constante do Artigo 1052, Parágrafo Único, do Código Civil      Brasileiro (Lei 10.406/2002) e, ainda em conformidade com Instrução Normativa DREI, nº 63 de 11      Junho de 2019, mediante as cláusulas e condições seguintes:  </p> 
+                    <!-- fim de ${handleSociosContratantesHtml('inicio')} -->
+                    <p><b>CLÁUSULA PRIMEIRA:</b><br />
+                        &emsp;&emsp;A Sociedade Simples Limitada Unipessoal irá girar sob a denominação social de: "<b>${empresaContratante.nomeEmpContratante}</b>".</p>
+                    <p><b>CLÁUSULA SEGUNDA:</b><br />
+                        &emsp;A sede e foro da Sociedade Simples Limitada Unipessoal é nesta cidade e comarca de ${empresaContratante.cidadeEmpContratante}/${empresaContratante.ufEmpContratante}, CEP: ${empresaContratante.cepEmpContratante}, à <b><u>${empresaContratante.ruaEmpContratante}, Nº${empresaContratante.numEndEmpContratante} - ${empresaContratante.bairroEmpContratante}</u></b>, podendo vir abrir filiais qualquer tempo e época, mediante alteração contratual.
+                    </p>
+                    <p><b>CLÁUSULA TERCEIRA:</b><br />
+                        &emsp;A presente Sociedade Simples Limitada, que ora se se constitui, adota como natureza jurídica a de Sociedade Simples, constituída sob a forma de Sociedade Simples Limitada Unipessoal, explorando o ramo de atividade o de: <b>${empresaContratante.atividadeEmpContratante}</b></p>
+                    <p><b>CLÁUSULA QUARTA:</b><br />
+                        &emsp;A presente Sociedade Simples Limitada Unipessoal que ora se constitui, inicia suas atividades em ${empresaContratante.dataInicioEmpContratante} e seu prazo de duração é por ${empresaContratante.duracaoEmpContratante}.</p>
+                    <p><b>CLÁUSULA QUINTA:</b><br />
+                        &emsp;A presente Sociedade Simples Limitada Unipessoal, que ora se constitui cuja denominação social é: <b>${empresaContratante.nomeEmpContratante}</b>, possui o Capital Social de R$ ${empresaContratante.capitalSocialEmpContratante} (${empresaContratante.capitalSocialEmpContratante.extenso(true)}), divididos em ${empresaContratante.qtdQuotasEmpContratante} quotas, no valor nominal de R$ ${empresaContratante.valorQuotaEmpContratante} (${empresaContratante.valorQuotaEmpContratante.extenso(true)}) cada uma quota, já totalmente integralizadas, em espécie, moeda corrente nacional do país, que compõe o acervo desta, ficando assim distribuído:
+                    </p>
+                    <table>
+                        <thead class="negrito">
+                            <tr>
+                                <td>SOCIO</td>
+                                <td>%</td>
+                                <td>QUOTAS</td>
+                                <td>R$</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- inicio de ${handleSociosContratantesHtml('tbody')} -->
+                            <tr>
+                                <td>${socioContratante.nomeSocioContratante}</td>
+                                <td>100%</td>
+                                <td>${empresaContratante.qtdQuotasEmpContratante}</td>
+                                <td>${empresaContratante.capitalSocialEmpContratante}</td>
+                            </tr>
+                            <!-- fim de ${handleSociosContratantesHtml('tbody')} -->
+                        </tbody>
+                        <tfoot class="negrito">
+                            <tr>
+                                <td>TOTAL:</td>
+                                <td>100%</td>
+                                <td>${empresaContratante.qtdQuotasEmpContratante}</td>
+                                <td>${empresaContratante.capitalSocialEmpContratante}</td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                    <p><b>CLÁUSULA SEXTA:</b><br />
+                        &emsp;A responsabilidade do sócio, <b>${sociosContratantes[0].nomeSocioContratante}</b> acima qualificado, é limitada ao
+                        valor e percentual de suas quotas de capital, as quais já estão totalmente integralizadas e, este responde solidariamente pela efetiva integralização deste capital social conforme dispõe o Artigo 1.052
+                        do Código Civil Brasileiro, Lei 10.406/2002.</p>
+                    <p><b>CLÁUSULA SÉTIMA:</b><br />
+                        &emsp;Fica vedado ao sócio, <b>${sociosContratantes[0].nomeSocioContratante}</b>, acima qualificado, o direito de usar
+                        esta Sociedade Simples Limitada Unipessoal, que ora se constitui, em atividades alheias ao seu objeto social, tais como: avais, endossos, fianças, hipotecas, garantias a favor de terceiros.</p>
+                    <p><b>CLÁUSULA OITAVA:</b><br />
+                        &emsp;A administração, assinatura e o uso do nome da Sociedade Simples Limitada Unipessoal, que ora se constitui, fica a cargo, única e exclusivamente, do sócio, <b>${sociosContratantes[0].nomeSocioContratante}</b>, acima qualificado, o
+                        qual assina individualmente e isoladamente pela mesma, representando-a ativamente e passivamente, judicialmente e extrajudicialmente, perante repartições Públicas, Federais, Estaduais, Municipais; Autarquias,
+                        inclusive Bancos e demais órgãos.</p>
+                    <p><b><u>PARÁGRAFO ÚNICO:</u></b> Fica facultado ao sócio, <b>${sociosContratantes[0].nomeSocioContratante}</b>, acima qualificado, nomear procuradores, por prazos determinados e/ou indeterminados, devendo o instrumento de procuração especificar os atos e serem praticados pelos outorgados procuradores assim nomeados.</p>
+                    <p><b>CLÁUSULA NONA:</b><br />
+                        &emsp;A retirada, do pró-labore, será mensal, feita única e exclusivamente para o sócio, <b>${sociosContratantes[0].nomeSocioContratante}</b>, acima qualificado, e nunca inferior a ${sociosContratantes[0].prolaboreSocContratante} (${sociosContratantes[0].prolaboreSocContratante.extenso(false)}) Salário(s) Mínimo(s) Regional, vigente, retirada esta que será mensalmente levada a conta de despesas gerais desta Sociedade Simples Limitada Unipessoal, que ora se constitui respeitadas as disposições legais que regem o assunto.
+                    </p>
+                    <p><b>CLÁUSULA DECIMA:</b><br />
+                        &emsp;A apuração dos resultados desta Sociedade Simples Limitada Unipessoal, terá como período o ano civil e será levantado em ${handleDataPorExtenso(empresaContratante.dataFechamentoFiscalAnual)} de cada exercício e os eventuais lucros ou perdas evidenciados deste resultado, em ${handleDataPorExtenso(empresaContratante.dataFechamentoFiscalAnual)} de cada exercício, poderão ser distribuídos ou retidos nesta Sociedade Simples Limitada Unipessoal, que ora se constitui.</p>
+                    <p><b>CLÁUSULA DECIMA PRIMEIRA:</b><br />
+                        &emsp;O sócio, <b>${sociosContratantes[0].nomeSocioContratante}</b>, acima qualificado, declara para todos os fins de direitos, que não está condenado por nenhum crime e/ou vedação, as quais as impeçam do exercício da administração desta Sociedade Simples Limitada Unipessoal, conforme Artigo 1.011, § 1º do Código Civil Brasileiro/2002.</p>
+                    <p><b>CLÁUSULA DECIMA SEGUNDA:</b><br />
+                        &emsp;O sócio, <b>${sociosContratantes[0].nomeSocioContratante}</b>, acima qualificado, declara que o movimento da receita bruta anual da empresa não excederá o limite fixado no inciso I do art. 3º da Lei Complementar nº 123 de 14 de dezembro de 2006, e que não se enquadram em qualquer da hipótese de exclusão relacionado no § 4º do art.3º da mencionada Lei.</p>
+                    <p><b>CLÁUSULA DECIMA TERCEIRA:</b><br />
+                        &emsp;Para dirimir quaisquer dúvidas oriundas deste <u>Instrumento Particular de Constituição de Uma Sociedade Simples Limitada</u>, fica desde já, eleito o foro da cidade e comarca de ${dadosComarca.cidadeComarca} – ${dadosComarca.ufComarca}, eliminando quaisquer outros, por mais privilegiados que estes sejam.</p>
+                    ${handleClausulasAdicionaisHtml()}
+                    <p>&emsp;E, o(a) Sr.(a) <b>${sociosContratantes[0].nomeSocioContratante}</b>, acima qualificado, por estar convicto com esta formalização da presente <b>SOCIEDADE SIMPLES LIMITADA UNIPESSOAL</b>, obriga-se fielmente a cumprir as disposições do presente Instrumento Particular de Constituição de Uma Sociedade Simples Limitada e, para validade assina em 03 (três) folhas somente no anverso, destinando-se ao competente arquivamento no Cartório de Registro de Títulos e Documentos, Registro Civil das Pessoas Naturais e Jurídicas.</p>
+                    <p class="center">${dadosContrato.cidadeContrato} – ${dadosContrato.ufContrato}, ${handleDataPorExtenso(dadosContrato.dataContrato,true)}.</p>
+                    <p class="center assinaturas">
+                        <br /><br /><br />_________________________________________________<br />
+                        <b>${sociosContratantes[0].nomeSocioContratante}<br />
+                            SOCIO ADMINISTRADOR</b>
+                    </p>
+                    <p class="center assinaturas">
+                        <br /><br /><br /><br />_________________________________________________<br />
+                        <b>${testemunha1.nomeTestemunha1}<br />
+                            RG ${testemunha1.rgTestemunha1} ${testemunha1.emissorRgTestemunha1} e CPF/MF ${testemunha1.cpfTestemunha1}</b><br />
+                        TESTEMUNHA
+                    </p>
+                    <p class="center assinaturas">
+                        <br /><br /><br />_________________________________________________<br />
+                        <b>${testemunha2.nomeTestemunha2}<br />
+                            RG ${testemunha2.rgTestemunha2} ${testemunha2.emissorRgTestemunha2} e CPF/MF ${testemunha2.cpfTestemunha2}</b><br />
+                        TESTEMUNHA
+                    </p>
+                    </div>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <br><br><br>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div id="footer">
+        <p> Praça Comendador João Alves, nº 208 - Centro - São Sebastião do Paraíso - MG - CEP 37.950-000
+            <br />
+            Telefone:(35) 3531-3355 - e-mail: <a href="#">minascontabil@paraisonetcom.br</a>.
+        </p>
+    </div>
+    <script>
+        document.getElementById("headerImg").onload = function () {
+            setTimeout(function () { window.print() }, 100);
+            window.onafterprint = function () { setTimeout(function () { window.close() }, 100); }
+        }
+    </script>
+</body>
+
+</html>
